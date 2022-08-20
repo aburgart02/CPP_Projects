@@ -96,8 +96,7 @@ private:
 			int xrnd = xdist(rng), yrnd = ydist(rng);
 			game_map.map[yrnd][xrnd] = food;
 			game_map.map[old_y_pos][old_x_pos] = space;
-			old_x_pos = xrnd;
-			old_y_pos = yrnd;
+			old_x_pos = xrnd, old_y_pos = yrnd;
 		}
 	}
 
@@ -125,12 +124,10 @@ private:
 		s += score;
 		wstring stemp = wstring(s.begin(), s.end());
 		LPCWSTR sw = stemp.c_str();
-		WriteConsoleOutputCharacter(handle, sw, game_map.height * game_map.width + score.length(), COORD{0, 0}, &dword);
+		WriteConsoleOutputCharacter(handle, sw, game_map.height * game_map.width + score.length(), COORD{ 0, 0 }, &dword);
 	}
 
-	int space = 0;
-	int wall = 1;
-	int food = 2;
+	enum Cell { space, wall, food };
 	int k = 0;
 	int speed = 200000;
 	int game_score = 0;

@@ -213,9 +213,7 @@ private:
 
 	int height = 0;
 	int width = 0;
-	int pass = 0;
-	int wall = 1;
-	int point = 2;
+	enum Cell { pass, wall, point };
 	int x = 1;
 	int y = 1;
 	int** maze;
