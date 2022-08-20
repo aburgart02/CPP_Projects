@@ -81,7 +81,7 @@ private:
 		tie(hx, hy) = player.body.front();
 		tuple<int, int> new_head = make_tuple(hx + dx, hy + dy);
 		if (!(std::find(player.body.begin(), player.body.end(), new_head) == player.body.end())
-			|| (dx + hx == 0) || (dy + hy == 0) || (dx + hx == game_map.width - 1) || (dy + hy == game_map.height))
+			|| (dx + hx == 0) || (dy + hy == 0) || (dx + hx == game_map.width - 1) || (dy + hy == game_map.height - 1))
 			game_state = false;
 		player.body.push_front(new_head);
 		if (game_map.map[hy + dy][hx + dx] != food)
