@@ -8,7 +8,7 @@
 
 class SnakeGame {
 public:
-	SnakeGame() : player(5, 5, 5, 6), game_map(20, 40, space, wall) {
+	SnakeGame() : player(5, 5, 5, 6), game_map(20, 40) {
 		direction_dict["up"] = make_tuple(0, -1);
 		direction_dict["down"] = make_tuple(0, 1);
 		direction_dict["left"] = make_tuple(-1, 0);
@@ -52,7 +52,7 @@ private:
 	};
 
 	struct Map {
-		Map(int height, int width, int space, int wall) {
+		Map(int height, int width) {
 			this->height = height;
 			this->width = width;
 			map = new int* [height];
